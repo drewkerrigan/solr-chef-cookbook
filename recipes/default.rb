@@ -8,7 +8,7 @@ execute "extract" do
   cwd "/tmp"
 end
 
-execute "run_solr" do
-  command "java -jar start.jar"
-  cwd "/tmp/solr-4.2.1/example"
-end
+#execute "run_solr" do
+#  command "java -jar start.jar"
+#  cwd "/tmp/solr-4.2.1/example"
+#end
