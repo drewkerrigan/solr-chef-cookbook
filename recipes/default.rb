@@ -4,7 +4,7 @@ remote_file "/tmp/solr-4.2.1.tgz" do
 end
 
 execute "extract" do
-  command "tar zxf solr-3.1.0.tgz"
+  command "tar zxf solr-4.2.1.tgz"
   cwd "/tmp"
 end
 
