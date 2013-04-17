@@ -1,32 +1,3 @@
-# package "daemon"
-
-# download a binary release
-#remote_file "/tmp/solr-4.2.1.tgz" do
-#  source "http://www.mirrorservice.org/sites/ftp.apache.org/lucene/solr/4.2.1/solr-4.2.1.tgz"
-#end
-
-#todo: remove for real thing
-execute "move_solr" do
-  command "cp /vagrant/solr-4.2.1.tgz /tmp/vagrant-chef-1/solr-4.2.1.tgz"
-  cwd "/tmp"
-end
-
-# execute "extract" do
-#   command "tar zxf solr-4.2.1.tgz"
-#   cwd "/tmp"
-# end
-
-#execute "run_solr" do
-#  command "sudo java -jar start.jar"
-#  cwd "/tmp/solr-4.2.1/example"
-#end
-
-user node[:solr][:user] do
-  action :create
-  system true
-  shell "/bin/false"
-end
-
 directory node[:solr][:dir] do
   owner "root"
   mode "0755"
