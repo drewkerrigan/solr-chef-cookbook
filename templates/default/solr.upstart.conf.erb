@@ -1,7 +1,6 @@
 #!upstart
 description "Solr Server"
 
-env USER=<%= node[:solr][:user] %>
 env SOLR_DIR=<%= node[:solr][:dir] %>
 env SOLR_LOG_DIR=<%= node[:solr][:log_dir] %>
 
@@ -10,4 +9,4 @@ stop on shutdown
 
 respawn
 
-exec sudo -u $USER sh -c "cd $SOLR_DIR/example && java -jar start.jar 2>&1 >> $SOLR_LOG_DIR/solr.log"
+exec sudo sh -c "cd $SOLR_DIR/example && java -jar start.jar"

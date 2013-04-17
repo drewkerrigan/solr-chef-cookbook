@@ -33,12 +33,6 @@ directory node[:solr][:dir] do
   action :create
 end
 
-directory node[:solr][:log_dir] do
-  mode 0755
-  owner node[:solr][:user]
-  action :create
-end
-
 remote_file "#{Chef::Config[:file_cache_path]}/solr-#{node[:solr][:version]}.tgz" do
   source "http://www.mirrorservice.org/sites/ftp.apache.org/lucene/solr/#{node[:solr][:version]}/solr-#{node[:solr][:version]}.tgz"
   action :create_if_missing
