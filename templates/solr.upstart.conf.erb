@@ -1,0 +1,12 @@
+#!upstart
+description "Solr Server"
+
+env USER=<%= node[:solr][:user] %>
+
+start on startup
+stop on shutdown
+
+respawn
+
+exec sudo -u $USER sh -c "java -jar <%= node[:solr][:dir] =>/example/start.jar \
+  2>&1 >> <%= node[:solr][:log_dir] %>/solr.log"
