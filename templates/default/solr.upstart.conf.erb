@@ -2,7 +2,6 @@
 description "Solr Server"
 
 env SOLR_DIR=<%= node[:solr][:dir] %>
-env SOLR_LOG_DIR=<%= node[:solr][:log_dir] %>
 
 start on startup
 stop on shutdown
