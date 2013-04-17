@@ -7,7 +7,7 @@
 
 #todo: remove for real thing
 execute "move_solr" do
-  command "cp /vagrant/solr-4.2.1.tgz /tmp/solr-4.2.1.tgz"
+  command "cp /vagrant/solr-4.2.1.tgz /tmp/vagrant-chef-1/solr-4.2.1.tgz"
   cwd "/tmp"
 end
 
