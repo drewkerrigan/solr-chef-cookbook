@@ -48,7 +48,7 @@ bash "install_solr" do
   cwd Chef::Config[:file_cache_path]
   code <<-EOH
     tar zxf solr-#{node[:solr][:version]}.tgz
-    cp -R solr-#{node[:solr][:version]}/* #{node[:solr][:dir]}/
+    sudo cp -R solr-#{node[:solr][:version]}/* #{node[:solr][:dir]}/
   EOH
   creates "#{node[:solr][:dir]}/example/start.jar"
 end
