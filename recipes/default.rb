@@ -4,7 +4,7 @@
 #end
 
 execute "move_solr" do
-  command "mv /vagrant/solr-4.2.1.tgz /tmp/solr-4.2.1.tgz"
+  command "cp /vagrant/solr-4.2.1.tgz /tmp/solr-4.2.1.tgz"
   cwd "/tmp"
 end
 
