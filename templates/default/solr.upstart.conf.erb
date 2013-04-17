@@ -8,5 +8,5 @@ stop on shutdown
 
 respawn
 
-exec sudo -u $USER sh -c "java -jar <%= node[:solr][:dir] =>/example/start.jar \
-  2>&1 >> <%= node[:solr][:log_dir] %>/solr.log"
+exec sudo -u $USER sh -c "java -jar <%= node[:solr][:dir] =>/example/start.jar 2>&1 >> <%= node[:solr][:log_dir] %>/solr.log"
+exec sudo -u $USER sh -c "cd <%= node[:solr][:dir] =>/example && java -jar start.jar 2>&1 >> <%= node[:solr][:log_dir] %>/solr.log"
