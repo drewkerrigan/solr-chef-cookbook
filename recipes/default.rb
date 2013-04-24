@@ -4,6 +4,14 @@ directory node[:solr][:dir] do
   action :create
 end
 
+template "schema.xml" do
+  path "#{node[:solr][:dir]}/schema.xml"
+  source "schema.xml.erb"
+  owner "root"
+  group "root"
+  mode "0644"
+end
+
 remote_file "#{Chef::Config[:file_cache_path]}/solr-#{node[:solr][:version]}.tgz" do
   source "http://www.mirrorservice.org/sites/ftp.apache.org/lucene/solr/#{node[:solr][:version]}/solr-#{node[:solr][:version]}.tgz"
   action :create_if_missing
@@ -14,6 +22,8 @@ bash "install_solr" do
   code <<-EOH
     tar zxf solr-#{node[:solr][:version]}.tgz
     sudo cp -R solr-#{node[:solr][:version]}/* #{node[:solr][:dir]}/
+    sudo rm #{node[:solr][:dir]}/example/solr/collection1/conf/schema.xml
+    sudo cp #{node[:solr][:dir]}/schema.xml #{node[:solr][:dir]}/example/solr/collection1/conf/schema.xml
   EOH
   creates "#{node[:solr][:dir]}/example/start.jar"
 end
