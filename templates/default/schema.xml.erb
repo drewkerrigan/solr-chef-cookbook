@@ -2,7 +2,7 @@
 <schema name="example" version="1.5">
 	<fields>
 		<%= node[:solr][:schema].each do |key, value| %>
-			<field name="<%= key.to_s %>" <%= value.each do |k,v| %><%= k.to_s %>="<%=v.to_s%>"<%= end %> />
+			<field name="<%= key %>" <%= value.each do |k,v| %><%= k %>="<%= v %>"<%= end %> />
 		<%= end %>
 
         <field name="_version_" type="long" indexed="true" stored="true"/>
