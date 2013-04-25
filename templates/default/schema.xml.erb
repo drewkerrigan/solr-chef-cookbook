@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <schema name="example" version="1.5">
 	<fields>
-		<%= node[:solr][:schema].each do |key, value| %>
-			<field name="<%= key %>" <%= value.each do |k,v| %><%= k %>="<%= v %>"<%= end %> />
-		<%= end %>
+		<% node[:solr][:schema].each do |key, value| %>
+			<field name="<%= key %>" <% value.each do |k,v| %><%= k %>="<%= v %>"<% end %> />
+		<% end %>
 
         <field name="_version_" type="long" indexed="true" stored="true"/>
         <field name="text" type="text_general" indexed="true" stored="false" multiValued="true"/>
