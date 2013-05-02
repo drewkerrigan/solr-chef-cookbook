@@ -1,11 +1,11 @@
 #!upstart
 description "Solr Server"
 
-env SOLR_DIR=<%= node[:solr][:dir] %>
+env SOLR_DIR=<%= node["solr"]["dir"] %>
 
 start on startup
 stop on shutdown
 
 respawn
 
-exec sudo sh -c "cd $SOLR_DIR/example && java -jar start.jar"
+exec sudo sh -c "cd $SOLR_DIR/example && java -Djetty.host=<%= node["solr"]["bind_address"] %> -Djetty.port=<%= node["solr"]["bind_port"] %> -jar start.jar"
