@@ -9,6 +9,11 @@
         <field name="text" type="text_general" indexed="true" stored="false" multiValued="true"/>
 	</fields>
  	<uniqueKey>id</uniqueKey>
+
+	<% node[:solr][:schema].each do |key, value| %>
+ 		<copyField source="<%= key %>" dest="text"/>
+	<% end %>
+
 	<types>
 		<fieldType name="string" class="solr.StrField" sortMissingLast="true" />
 		<fieldType name="int" class="solr.TrieIntField" precisionStep="0" positionIncrementGap="0"/>
