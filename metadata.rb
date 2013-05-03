@@ -22,7 +22,7 @@ maintainer        "Drew Kerrigan"
 maintainer_email  "dr.kerrigan@gmail.com"
 license           "Apache 2.0"
 description       "Installs and configures Solr"
-version           "0.1.3.3"
+version           "0.1.a"
 depends           "java"
 
 recipe            "solr", "Installs Solr from a package"
